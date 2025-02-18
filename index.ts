@@ -33,4 +33,14 @@ app.get("/search", async (req, res) => {
   }
 });
 
-app.listen(port, () => console.log(`Server running on port ${port}...`));
+const server = app.listen(port, () =>
+  console.log(`Server running on port ${port}...`)
+);
+
+process.on("SIGINT", () => {
+  console.log("Server closing gracefully...");
+  server.close(() => {
+    console.log("Server closed.");
+    process.exit(0);
+  });
+});
