@@ -2,13 +2,16 @@
   "name": "movie-api",
   "version": "1.0.0",
   "description": "A REST API to display matching search results from TMDb",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
+    "start": "node index.ts",
     "test": "echo No test framework installed"
   },
   "author": "Jacob Hewitson",
   "license": "ISC",
   "dependencies": {
+    "axios": "^1.7.9",
+    "dotenv": "^16.4.7",
     "express": "^4.21.2"
   }
 }
