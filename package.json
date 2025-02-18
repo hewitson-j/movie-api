@@ -4,7 +4,7 @@
   "description": "A REST API to display matching search results from TMDb",
   "main": "index.ts",
   "scripts": {
-    "start": "node index.ts",
+    "start": "ts-node index.ts",
     "test": "echo No test framework installed"
   },
   "author": "Jacob Hewitson",
@@ -13,5 +13,8 @@
     "axios": "^1.7.9",
     "dotenv": "^16.4.7",
     "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.2"
   }
 }
