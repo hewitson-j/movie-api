@@ -1,0 +1,14 @@
+{
+  "name": "movie-api",
+  "version": "1.0.0",
+  "description": "A REST API to display matching search results from TMDb",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo No test framework installed"
+  },
+  "author": "Jacob Hewitson",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
