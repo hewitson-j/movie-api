@@ -1,5 +1,8 @@
 import express from "express";
-import { handleSearchMoviesByTitle } from "../controllers/getController";
+import {
+  handleGetMovieById,
+  handleSearchMoviesByTitle,
+} from "../controllers/getController";
 
 const router = express.Router();
 
@@ -8,5 +11,6 @@ router.get("/test", (_, res) => {
 });
 
 router.get("/search", handleSearchMoviesByTitle);
+router.get("/search/:id", handleGetMovieById);
 
 export default router;
