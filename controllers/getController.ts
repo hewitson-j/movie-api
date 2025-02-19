@@ -55,3 +55,28 @@ export const handleGetMovieById = async (req, res) => {
     });
   }
 };
+
+export const handleGetTrending = async (req, res) => {
+  let { type } = req.params;
+  const { timeframe } = req.query;
+
+  if (!type || (type !== "movie" && type !== "tv")) type = "movie";
+
+  try {
+    const response = await axios.get(
+      `https://api.themoviedb.org/3/trending/${type}/${timeframe}`,
+      {
+        params: {
+          api_key: process.env.API_KEY,
+        },
+      }
+    );
+
+    return res.json(response.data);
+  } catch (e) {
+    return res.status(e.response?.status || 500).json({
+      error: "Failed to fetch trending",
+      details: e.response?.data || "Internal Server Error",
+    });
+  }
+};

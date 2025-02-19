@@ -1,6 +1,7 @@
 import express from "express";
 import {
   handleGetMovieById,
+  handleGetTrending,
   handleSearchMoviesByTitle,
 } from "../controllers/getController";
 
@@ -12,5 +13,6 @@ router.get("/test", (_, res) => {
 
 router.get("/search", handleSearchMoviesByTitle);
 router.get("/search/:id", handleGetMovieById);
+router.get("/trending/:type", handleGetTrending);
 
 export default router;
