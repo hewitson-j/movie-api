@@ -1,6 +1,7 @@
 import express from "express";
 import rateLimit from "express-rate-limit";
 import router from "./routes/routes";
+import cors from "cors";
 
 require("dotenv").config();
 
@@ -14,6 +15,12 @@ const limiter = rateLimit({
 });
 
 app.use(limiter);
+
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+  })
+);
 app.use("/movies", router);
 
 app.get("/", (_, res) => {
