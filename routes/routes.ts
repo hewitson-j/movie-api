@@ -7,8 +7,10 @@ import {
 
 const router = express.Router();
 
-router.get("/test", (_, res) => {
-  return res.send("Hello! This is a test.");
+router.get("/", (_, res) => {
+  res.send(
+    "Welcome to the Movie API! Use /movies/search, /movies/trending, or /movies/:id to get started."
+  );
 });
 
 router.get("/search", handleSearchMoviesByTitle);

@@ -16,6 +16,10 @@ const limiter = rateLimit({
 app.use(limiter);
 app.use("/movies", router);
 
+app.get("/", (_, res) => {
+  res.redirect("/movies/");
+});
+
 const port = process.env.PORT || 3000;
 
 const server = app.listen(port, () =>
