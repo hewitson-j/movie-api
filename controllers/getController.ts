@@ -2,12 +2,14 @@ import axios from "axios";
 
 export const handleSearchMoviesByTitle = async (req, res) => {
   let { title, page, year, include_adult, language, region } = req.query;
+  let { type } = req.params;
 
   if (!title) return res.status(400).json({ error: "Title is required" });
+  if (!type || (type !== "movie" && type !== "tv")) type = "movie";
 
   try {
     const response = await axios.get(
-      "https://api.themoviedb.org/3/search/movie",
+      `https://api.themoviedb.org/3/search/${type}`,
       {
         params: {
           query: title,

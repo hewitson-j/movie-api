@@ -14,7 +14,7 @@ router.get("/", (_, res) => {
   );
 });
 
-router.get("/search", handleSearchMoviesByTitle);
+router.get("/search/:type", handleSearchMoviesByTitle);
 router.get("/search/movie/:id", handleGetMovieById);
 router.get("/search/tv/:id", handleGetTvShowById);
 router.get("/trending/:type", handleGetTrending);
