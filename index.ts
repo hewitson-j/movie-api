@@ -18,10 +18,7 @@ app.use(limiter);
 
 app.use(
   cors({
-    origin: [
-      "http://localhost:5173",
-      "http://hewitson-j.github.io/movie-app-frontend/",
-    ],
+    origin: ["http://localhost:5173", "http://hewitson-j.github.io"],
   })
 );
 app.use("/movies", router);
