@@ -58,9 +58,15 @@ export const handleGetMovieById = async (req, res) => {
 
 export const handleGetTrending = async (req, res) => {
   let { type } = req.params;
-  const { timeframe } = req.query;
+  let { timeframe, page } = req.query;
 
   if (!type || (type !== "movie" && type !== "tv")) type = "movie";
+  if (!timeframe || (timeframe !== "day" && timeframe !== "week")) {
+    return res.status(400).json({
+      error: "Invalid or missing 'timeframe' parameter. Use 'day' or 'week'.",
+    });
+  }
+  if (isNaN(page) || page < 0) page = 1;
 
   try {
     const response = await axios.get(
@@ -68,6 +74,7 @@ export const handleGetTrending = async (req, res) => {
       {
         params: {
           api_key: process.env.API_KEY,
+          page: page,
         },
       }
     );

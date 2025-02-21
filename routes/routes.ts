@@ -9,7 +9,7 @@ const router = express.Router();
 
 router.get("/", (_, res) => {
   res.send(
-    "Welcome to the Movie API! Use /movies/search, /movies/trending, or /movies/:id to get started."
+    "Welcome to the Movie API! Use /movies/search, /movies/trending/tv, /movies/trending/movie, or /movies/search/:id to get started."
   );
 });
 
