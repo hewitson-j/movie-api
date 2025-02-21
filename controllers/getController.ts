@@ -56,6 +56,29 @@ export const handleGetMovieById = async (req, res) => {
   }
 };
 
+export const handleGetTvShowById = async (req, res) => {
+  const { id } = req.params;
+
+  if (!id) {
+    return res.status(400).json({ error: "Show ID is required" });
+  }
+
+  try {
+    const response = await axios.get(`https://api.themoviedb.org/3/tv/${id}`, {
+      params: {
+        api_key: process.env.API_KEY,
+      },
+    });
+
+    return res.json(response.data);
+  } catch (e) {
+    return res.status(e.response?.status || 500).json({
+      error: "Failed to fetch TV show",
+      details: e.response?.data || "Internal Server Error",
+    });
+  }
+};
+
 export const handleGetTrending = async (req, res) => {
   let { type } = req.params;
   let { timeframe, page } = req.query;
