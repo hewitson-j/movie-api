@@ -3,7 +3,7 @@ import {
   handleGetMovieById,
   handleGetTrending,
   handleGetTvShowById,
-  handleSearchMoviesByTitle,
+  handleSearchByTitle,
 } from "../controllers/getController";
 
 const router = express.Router();
@@ -14,7 +14,7 @@ router.get("/", (_, res) => {
   );
 });
 
-router.get("/search/:type", handleSearchMoviesByTitle);
+router.get("/search/:type", handleSearchByTitle);
 router.get("/search/movie/:id", handleGetMovieById);
 router.get("/search/tv/:id", handleGetTvShowById);
 router.get("/trending/:type", handleGetTrending);
